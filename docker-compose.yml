@@ -1,0 +1,11 @@
+services:
+  multi-app:
+    container_name: nginx-unit-python
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    ports:
+      - "9443:443"
+    volumes:
+      - "./test.py:/api/test.py:rw"
